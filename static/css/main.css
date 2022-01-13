@@ -1,0 +1,22 @@
+
+        #logo{
+            width: 50px; height: 20px;
+         }
+        
+        body{
+            background-color: whitesmoke;
+        }
+
+        #total-orders{
+            background-color: green;
+        }
+
+        #orders-delivered{
+            background-color: yellow;
+        }
+
+        #orders-pending{
+            background-color: red;
+        }
+
+
