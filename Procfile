@@ -1,1 +1,0 @@
-web gunicorn project_crm.wsgi:application --log-file -
