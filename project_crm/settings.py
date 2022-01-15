@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-4y4%$%-*a!g80x95cp%hej82g9#4h6_jpt4ns-$6&zqffspd%4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jubrilcrm.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'project_crm.urls'
