@@ -1,4 +1,1 @@
-release: python manage.py makemigrations
-release: python manage.py migrate
-
-web: gunicorn project_crm.wsgi
+web gunicorn project_crm.wsgi:application --log-file -
