@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-import django
-
+import django_heroku
+import dj_database_url
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoisemiddleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project_crm.urls'
@@ -129,6 +131,8 @@ MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestFilesStorage'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
@@ -143,3 +147,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'logon2jubril@gmail.com'
 EMAIL_HOST_PASSWORD = ''
+
+
+django_heroku.settings(locals())
