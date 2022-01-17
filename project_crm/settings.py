@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+import django_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4y4%$%-*a!g80x95cp%hej82g9#4h6_jpt4ns-$6&zqffspd%4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','jubrilcrm.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -130,7 +133,7 @@ MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
@@ -147,4 +150,4 @@ EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'logon2jubril@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 
-
+django_heroku.settings(locals())
